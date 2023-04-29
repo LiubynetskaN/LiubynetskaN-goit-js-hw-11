@@ -26,7 +26,7 @@ function onSearchForm(e) {
   window.scrollTo({ top: 0 });
   page = 1;
   query = e.currentTarget.searchQuery.value.trim();
-  galleryEl.innerHTML = '';
+  galleryRen.innerHTML = '';
   loadMoreBtn.classList.add('is-hidden');
 
   if (query === '') {
@@ -39,7 +39,7 @@ function onSearchForm(e) {
       if (data.totalHits === 0) {
         alertNoImagesFound();
       } else {
-        galleryEl(data.hits);
+        galleryRen(data.hits);
         simpleLightBox = new SimpleLightbox('.gallery a').refresh();
         alertImagesFound(data);
 

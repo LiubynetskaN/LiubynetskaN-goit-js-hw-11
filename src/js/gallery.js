@@ -1,6 +1,7 @@
+
 export { galleryRen };
 
-const galleryEl = document.querySelector('.gallery');
+const gallery = document.querySelector('.gallery');
 
 function galleryRen(images) {
   const markup = images
@@ -22,5 +23,5 @@ function galleryRen(images) {
     })
     .join('');
 
-  galleryEl.insertAdjacentHTML('beforeend', markup);
+  gallery.insertAdjacentHTML('beforeend', markup);
 }

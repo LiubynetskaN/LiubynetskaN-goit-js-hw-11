@@ -1,8 +1,8 @@
-export { gallery };
+export { galleryRen };
 
 const galleryEl = document.querySelector('.gallery');
 
-function galleryEl(images) {
+function galleryRen(images) {
   const markup = images
     .map(image => {
       const { id, largeImageURL, webformatURL, tags, likes, views, comments, downloads } = image;

@@ -1,6 +1,6 @@
 import './css/styles.css';
 import { fetchImages } from './js/fetchImages';
-import { gallery } from './js/gallery';
+import { galleryRen } from './js/gallery';
 import { onScroll, onToTopBtn } from './js/scroll';
 import Notiflix from 'notiflix';
 

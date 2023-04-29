@@ -1,8 +1,8 @@
-export { renderGallery };
+export { gallery };
 
-const gallery = document.querySelector('.gallery');
+const galleryEl = document.querySelector('.gallery');
 
-function renderGallery(images) {
+function galleryEl(images) {
   const markup = images
     .map(image => {
       const { id, largeImageURL, webformatURL, tags, likes, views, comments, downloads } = image;
@@ -22,5 +22,5 @@ function renderGallery(images) {
     })
     .join('');
 
-  gallery.insertAdjacentHTML('beforeend', markup);
+  galleryEl.insertAdjacentHTML('beforeend', markup);
 }

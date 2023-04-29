@@ -1,6 +1,6 @@
 import './css/styles.css';
 import { fetchImages } from './js/fetchImages';
-import { renderGallery } from './js/gallery';
+import { gallery } from './js/gallery';
 import { onScroll, onToTopBtn } from './js/scroll';
 import Notiflix from 'notiflix';
 
@@ -8,7 +8,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const searchForm = document.querySelector('#search-form');
-const gallery = document.querySelector('.gallery');
+const galleryEl = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.btn-load-more');
 let query = '';
 let page = 1;
@@ -26,7 +26,7 @@ function onSearchForm(e) {
   window.scrollTo({ top: 0 });
   page = 1;
   query = e.currentTarget.searchQuery.value.trim();
-  gallery.innerHTML = '';
+  galleryEl.innerHTML = '';
   loadMoreBtn.classList.add('is-hidden');
 
   if (query === '') {
@@ -39,7 +39,7 @@ function onSearchForm(e) {
       if (data.totalHits === 0) {
         alertNoImagesFound();
       } else {
-        renderGallery(data.hits);
+        galleryEl(data.hits);
         simpleLightBox = new SimpleLightbox('.gallery a').refresh();
         alertImagesFound(data);
 
@@ -60,7 +60,7 @@ function onLoadMoreBtn() {
 
   fetchImages(query, page, perPage)
     .then(({ data }) => {
-      renderGallery(data.hits);
+      allery(data.hits);
       simpleLightBox = new SimpleLightbox('.gallery a').refresh();
 
       const totalPages = Math.ceil(data.totalHits / perPage);

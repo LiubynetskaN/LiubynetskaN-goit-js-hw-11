@@ -8,7 +8,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const searchForm = document.querySelector('#search-form');
-const galleryEl = document.querySelector('.gallery');
+const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.btn-load-more');
 let query = '';
 let page = 1;
@@ -26,7 +26,7 @@ function onSearchForm(e) {
   window.scrollTo({ top: 0 });
   page = 1;
   query = e.currentTarget.searchQuery.value.trim();
-  galleryRen.innerHTML = '';
+  gallery.innerHTML = '';
   loadMoreBtn.classList.add('is-hidden');
 
   if (query === '') {
@@ -60,7 +60,7 @@ function onLoadMoreBtn() {
 
   fetchImages(query, page, perPage)
     .then(({ data }) => {
-      allery(data.hits);
+      galleryRen(data.hits);
       simpleLightBox = new SimpleLightbox('.gallery a').refresh();
 
       const totalPages = Math.ceil(data.totalHits / perPage);
